@@ -3,6 +3,9 @@
 A React-based color palette generator that creates shading palettes using basic color theory principles.
 ![image](https://github.com/user-attachments/assets/bb1a332c-747d-4f00-9624-41ea6f33edf9)
 
+
+[APPLICATION DEMO](https://shade-palette-generator.vercel.app/)
+
 ## ✨ Features
 
 - **Smart Hue Shifting**: Highlights shift toward warm colors (yellow), shadows shift toward cool colors (blue)
@@ -26,6 +29,8 @@ The generator follows professional color theory principles:
 This creates much more realistic and aesthetically pleasing results than simple brightness/darkness adjustments.
 
 ## 🚀 Getting Started
+
+Either click on the demo link above or follow the installation instructions below.
 
 ### Prerequisites
 
