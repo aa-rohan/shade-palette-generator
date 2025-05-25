@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Shading Palette Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based color palette generator that creates shading palettes using basic color theory principles.
+![image](https://github.com/user-attachments/assets/bb1a332c-747d-4f00-9624-41ea6f33edf9)
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- **Smart Hue Shifting**: Highlights shift toward warm colors (yellow), shadows shift toward cool colors (blue)
+- **Natural Color Transitions**: Progressive lightness changes with intelligent saturation adjustments
+- **Customizable Controls**: 
+  - Adjust base color with color picker or hex input
+  - Control palette size (3-11 colors)
+  - Fine-tune hue shift intensity (0°-60°)
+- **Interactive Interface**: Click any color to copy hex code to clipboard
+- **Responsive Design**: Works on desktop and mobile devices
 
-### `npm start`
+## 🎨 How It Works
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The generator follows professional color theory principles:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Base Color**: Your selected color remains unchanged at the center
+2. **Highlights**: Shift toward warmer hues (yellow/orange) with increased lightness
+3. **Shadows**: Shift toward cooler hues (blue/purple) with decreased lightness
+4. **Saturation**: Dynamically adjusted for natural-looking transitions
 
-### `npm test`
+This creates much more realistic and aesthetically pleasing results than simple brightness/darkness adjustments.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+```bash
+git clone https://github.com/aa-rohan/shade-palette-generator.git
+cd shade-palette-generator
+```
 
-### `npm run eject`
+2. Install dependencies:
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Install Tailwind CSS:
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Configure Tailwind by updating `tailwind.config.js`:
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Add Tailwind directives to your `src/index.css`:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. Start the development server:
+```bash
+npm start
+```
 
-## Learn More
+## 📱 Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Select Base Color**: Use the color picker or enter a hex code
+2. **Adjust Palette Size**: Choose between 3-11 colors using the slider
+3. **Control Hue Shift**: Fine-tune how much colors shift from the base hue
+4. **Copy Colors**: Click any color in the palette to copy its hex code
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔧 Customization
 
-### Code Splitting
+### Algorithm Parameters
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+You can modify the color generation algorithm by adjusting these values in the code:
 
-### Analyzing the Bundle Size
+```javascript
+// Highlight hue shift (warm colors)
+const hueShift = ratio * (maxHueShift * 0.75);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+// Shadow hue shift (cool colors)  
+const hueShift = ratio * maxHueShift;
 
-### Making a Progressive Web App
+// Lightness adjustments
+l = baseL + (ratio * (95 - baseL)); // Highlights
+l = baseL * (1 - ratio * 0.8);     // Shadows
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Styling
 
-### Advanced Configuration
+The component uses Tailwind CSS classes. You can customize the appearance by modifying the className props or extending your Tailwind configuration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📄 License
 
-### Deployment
+This project is licensed under the MIT License 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Made with ❤️**
